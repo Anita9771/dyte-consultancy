@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import VideoOne from '../assets/istockphoto-1289259333-640_adpp_is.mp4'
 
 const Videos = () => {
     const navigate = useNavigate();
     const [currentVideo, setCurrentVideo] = useState(0);
-    const videos = [ 'https://www.w3schools.com/html/mov_bbb.mp4', 'https://www.youtube.com/watch?v=7fhtbd5NxW0', 'https://www.w3schools.com/html/mov_bbb.mp4' ];
+    const videos = [ 'https://res.cloudinary.com/doy3ks7ls/video/upload/v1678440368/istockphoto-1324423859-640_adpp_is_tshpzg.mp4', 'https://res.cloudinary.com/doy3ks7ls/video/upload/v1678440372/istockphoto-1289259333-640_adpp_is_ydy6k9.mp4' ];
 
 
     const playNextVideo = () => {
@@ -23,9 +24,9 @@ const Videos = () => {
       };
 
   return (
-    <div>
-      <h1>My Videos</h1>
-      <video src={videos[currentVideo]} controls></video>
+    <div className='videos'>
+      {/* <h1>My Videos</h1> */}
+      <video className='video' src={videos[currentVideo]} controls></video>
         <button id='playBtn' onClick={playNextVideo}>Next</button>
     </div>
   );

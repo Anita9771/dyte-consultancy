@@ -7,7 +7,24 @@
 .App {
   text-align: center;
   overflow: hidden;
+  background: url('./assets/wallpaper.jpeg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  /* background-blend-mode: multiply; */
   /* background: linear-gradient(45deg, #f5f5f5, rgb(0, 4, 36)) ; */
+}
+
+.App::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.8); 
+  mix-blend-mode: multiply;
+  /* z-index: -1; */
 }
 
 .landing-page {
@@ -15,18 +32,22 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  color: #000;
   font-family: 'Roboto', sans-serif;
   overflow: hidden;
+  color: whitesmoke;
+  position: relative;
+  z-index: 1;
 }
 
 .landing-page h1{
-  padding-bottom: 2rem;
+  padding: 2rem 0 1rem 0;
+  font-size: 4rem;
 }
 
 .landing-page p{
   padding-top: 2rem;
+  line-height: 32px;
+  font-size: 1.5rem;
 }
 
  .landing-page-form{
@@ -34,34 +55,38 @@
   flex-direction: column;
   justify-content: space-around;
   width: 50%;
-  margin: 5rem auto;
+  margin: auto;
+  color: rgb(193, 191, 191);
  }
 
  .landing-page-form label{
   padding-bottom: 2rem;
   font-size: 1.5rem;
   font-weight: bolder;
+  margin-top: 4rem;
  }
 
 
  .landing-page-form input{
   width: 100%;
   padding: 1rem;
-  border-radius: 5px;
+  border-radius: 1rem;
   border: 1px solid black;
   color: #000;
   font-size: 1.5rem;
   font-weight: 600;
   transition: all 0.3s ease-in-out;
+  text-align: center;
+  outline: none;
  }
 
- .landing-page-form button{
+ .landing-page-form button, .dyte-btn{
   width: 50%;
   margin: 0 auto;
   padding: 1rem;
-  border-radius: 5px;
+  border-radius: 5rem;
   border: none;
-  background-color: #f5f5f5;
+  background-color: #010f8d;
   color: #000;
   font-size: 1.5rem;
   font-weight: 600;
@@ -70,7 +95,75 @@
   margin-top: 2rem;
  }
 
- .landing-page-form button:hover{
-  background-color: rgb(193, 191, 191);
+ .landing-page-form button:hover, .videos #playBtn:hover, .dyte-btn:hover{
+  background-color: #0116d2;
   color: black;
+ }
+
+ .main-page{
+  display: flex;
+  justify-content: center;
+  /* border: 2px solid red; */
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+ }
+
+ .navbar{
+  /* border: 2px solid black; */
+  display: flex;
+  align-items: center;
+  padding: 2rem;
+  position: relative;
+  z-index: 1;
+  color: whitesmoke;
+ }
+
+ .dyte-meet{
+  /* border: 2px solid red; */
+  width: 44vw;
+  height: 70vh;
+ }
+
+ .video{
+  /* border: 2px solid red; */
+  width: 44vw;
+  height: 70vh;
+ }
+
+ .videos{
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+ }
+
+ .videos #playBtn{
+  width: 7rem;
+  height: 4rem;
+  margin: 2rem auto;
+  border-radius: 5rem;
+  border: none;
+  background-color: #010f8d;
+  font-size: 1.2rem;
+ }
+
+ .dyte-btn{
+  position: absolute;
+  top: 30%;
+  right: 20%;
+  z-index: 2;
+  background-color: #0116d2;
+  width: 20%;
+ }
+
+ .success-page{
+  position: relative;
+  z-index: 1;
+  color: whitesmoke;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80%;
+  flex-direction: column;
  }

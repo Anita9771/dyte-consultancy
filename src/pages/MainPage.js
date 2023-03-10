@@ -1,17 +1,17 @@
-import React from 'react'
-import { Dyte, Videos } from '../components'
+import React from "react";
+import { Dyte, Meeting, Videos } from "../components";
 
 const MainPage = () => {
   return (
-    <div>
-        <div className='recorded'>
-            <Dyte />
-        </div>
-        <div className='recorder'>
-
-        </div>
+    <div className="main-page">
+      <div className="recorded">
+        <Videos />
+      </div>
+      <div className="recorder">
+        <Dyte />
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default MainPage
+export default MainPage;
