@@ -24,11 +24,10 @@ const Dyte = () => {
             })
         })
         const data = await response.json();
-        console.log(data);
-        console.log(encodedApiKey);
+        // console.log(data);
+        // console.log(encodedApiKey);
 
         if (data.success === true){
-            alert('Something cool happened')
             const options = {
                 method: 'POST',
                 headers: {
@@ -42,7 +41,6 @@ const Dyte = () => {
                 .then(response => response.json())
                 .then(response => {
                     if (response.success === true){
-                        alert('second true')
                         const getBtn = document.getElementById('dyte-btn');
                         getBtn.style.display = 'none'
                         const authToken = response.data.token
@@ -65,8 +63,6 @@ const Dyte = () => {
                 .catch(err => console.error(err));
         } else {
             alert('Something went wrong');
-            const getChance = document.getElementById('chance');
-            getChance.innerText = data.success
         }
 
         
