@@ -22,8 +22,6 @@ const Dyte = () => {
       }),
     });
     const data = await response.json();
-    // console.log(data);
-    // console.log(encodedApiKey);
 
     if (data.success === true) {
       const options = {
@@ -58,7 +56,6 @@ const Dyte = () => {
               roomName,
             });
           }
-          // console.log(response)
         })
         .catch((err) => console.error(err));
     } else {
@@ -68,14 +65,6 @@ const Dyte = () => {
 
   return (
     <div>
-      {/* <h1 id='bigTag'>Dyte</h1> */}
-      {/* <p>{`${process.env.REACT_APP_DYTE_ORG_ID}`}</p>
-        <p>{`${process.env.REACT_APP_DYTE_API_KEY}`}</p> */}
-      {/* <p>{encodedApiKey}</p> */}
-
-      {/* <div id='chance'>
-
-        </div> */}
       <div className="dyte-meet">
         <button id="dyte-btn" className="dyte-btn" onClick={createMeeting}>
           START
