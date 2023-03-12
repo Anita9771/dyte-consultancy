@@ -1,5 +1,5 @@
 import React from "react";
-import { Dyte, Meeting, Videos } from "../components";
+import { Dyte, Videos } from "../components";
 
 const MainPage = () => {
   return (
