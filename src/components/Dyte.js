@@ -1,73 +1,39 @@
 import React from "react";
+import Axios from "axios";
 import { DyteMeeting } from "@dytesdk/react-ui-kit";
 import { useDyteClient } from "@dytesdk/react-web-core";
 
-const Dyte = () => {
+function Dyte() {
+  // const [data, setData] = useState("");
   const [meeting, initMeeting] = useDyteClient();
 
   const createMeeting = async () => {
-    const credentials = `${process.env.REACT_APP_DYTE_ORG_ID}:${process.env.REACT_APP_DYTE_API_KEY}`;
-    const encodedApiKey = btoa(credentials);
-
-    const response = await fetch("https://api.cluster.dyte.in/v2/meetings", {
-      method: "POST",
-      headers: {
-        Authorization: `Basic ${encodedApiKey}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        title: "Dyte Consulting",
-        record_on_start: true,
-        live_stream_on_start: false,
-      }),
-    });
-    const data = await response.json();
-
-    if (data.success === true) {
-      const options = {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Basic ${encodedApiKey}`,
-        },
-        body: '{"preset_name":"group_call_host","custom_participant_id":"owner"}',
-      };
-
-      fetch(
-        `https://api.cluster.dyte.in/v2/meetings/${data.data.id}/participants`,
-        options
-      )
-        .then((response) => response.json())
-        .then((response) => {
-          if (response.success === true) {
-            const getBtn = document.getElementById("dyte-btn");
-            getBtn.style.display = "none";
-            const authToken = response.data.token;
-            const roomName = "";
-            if (!authToken) {
-              alert(
-                "An authToken wasn't passed, please pass an authToken in the URL query to join a meeting."
-              );
-              return;
-            }
-
-            initMeeting({
-              authToken,
-              roomName,
-            });
-          }
-        })
-        .catch((err) => console.error(err));
-    } else {
-      alert("Something went wrong");
+    const response = await Axios.get("https://dyte-async-backend-12tzkljof-anita9771.vercel.app/api/meeting");
+    const getBtn = document.getElementById("dyte-btn");
+    getBtn.style.display = "none";
+    const authToken = response.data;
+    const roomName = "";
+    const showSetupScreen = false;
+    if (!authToken) {
+      alert(
+        "Please pass an authToken to join a meeting."
+      );
+      return;
     }
+
+    initMeeting({
+      authToken,
+      roomName,
+      showSetupScreen,
+    });
   };
+
 
   return (
     <div>
       <div className="dyte-meet">
         <button id="dyte-btn" className="dyte-btn" onClick={createMeeting}>
-          START
+          GET STARTED
         </button>
         <DyteMeeting meeting={meeting} mode="fill" />
       </div>
