@@ -13,7 +13,6 @@ function Dyte() {
     getBtn.style.display = "none";
     const authToken = response.data;
     const roomName = "";
-    const showSetupScreen = false;
     if (!authToken) {
       alert(
         "Please pass an authToken to join a meeting."
@@ -24,7 +23,6 @@ function Dyte() {
     initMeeting({
       authToken,
       roomName,
-      showSetupScreen,
     });
   };
 
@@ -35,7 +33,7 @@ function Dyte() {
         <button id="dyte-btn" className="dyte-btn" onClick={createMeeting}>
           GET STARTED
         </button>
-        <DyteMeeting meeting={meeting} mode="fill" />
+        <DyteMeeting meeting={meeting} mode="fill" showSetupScreen="false"/>
       </div>
     </div>
   );
