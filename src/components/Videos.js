@@ -20,7 +20,12 @@ const Videos = () => {
     if (currentVideo === videos.length - 2) {
       const btnText = document.getElementById("playBtn");
       btnText.innerText = "Finish";
+      alert("Ensure to end the meeting after answering the final question before you click on the finish button!")
     }
+
+    // if (currentVideo === videos.length - 3) {
+      
+    // }
 
     if (currentVideo === videos.length - 1) {
       navigate("/success-page");
