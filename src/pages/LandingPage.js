@@ -11,7 +11,6 @@ const LandingPage = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     navigate("/main-page", { state: { myData: dataToStore } });
-    // localStorage.setItem(inputValueName, inputValueEmail)
   };
 
   function handleChangeName(event) {
@@ -37,12 +36,9 @@ const LandingPage = () => {
       </p>
 
       <form onSubmit={handleSubmit} className="landing-page-form">
-        {/* <label>Full Name</label> */}
         <input onChange={handleChangeName} value={inputValueName}  type="text" name="name" placeholder="Full Name" required/>
-        {/* <label>Email ID</label> */}
         <input onChange={handleChangeEmail} value={inputValueEmail} type="email" name="emailID" placeholder="Email ID" required/>
-      
-          <button type="submit">Submit</button>
+        <button type="submit">Submit</button>
       </form>
     </div>
   );
