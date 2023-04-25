@@ -6,11 +6,11 @@
 
 .App {
   text-align: center;
-  overflow: hidden;
+  /* overflow: hidden; */
   background: url('./assets/wallpaper.jpeg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 100vh;
+  /* height: 100vh; */
   /* background-blend-mode: multiply; */
   /* background: linear-gradient(45deg, #f5f5f5, rgb(0, 4, 36)) ; */
 }
@@ -22,7 +22,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0,0,0,0.8); 
+  /* background-color: rgba(0,0,0,0.8);  */
   mix-blend-mode: multiply;
   /* z-index: -1; */
 }
@@ -37,10 +37,12 @@
   color: whitesmoke;
   position: relative;
   z-index: 1;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.8);
 }
 
 .landing-page h1{
-  padding: 2rem 0 1rem 0;
+  padding: 0 0 1rem 0;
   font-size: 4rem;
 }
 
@@ -56,17 +58,9 @@
   flex-direction: column;
   justify-content: space-around;
   width: 50%;
-  margin: auto;
+  /* margin: auto; */
   color: rgb(193, 191, 191);
  }
-
- .landing-page-form label{
-  padding-bottom: 2rem;
-  font-size: 1.5rem;
-  font-weight: bolder;
-  margin-top: 4rem;
- }
-
 
  .landing-page-form input{
   width: 100%;
@@ -84,17 +78,17 @@
 
  .landing-page-form button, .dyte-btn{
   width: 50%;
-  margin: 0 auto;
+  margin: 2rem auto 0 auto;
   padding: 1rem;
   border-radius: 5rem;
   border: none;
   background-color: #010f8d;
-  color: #000;
+  color: #fff;
   font-size: 1.5rem;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
-  margin-top: 2rem;
+  /* margin-top: 2rem; */
  }
 
  .landing-page-form button:hover, .videos #playBtn:hover, .dyte-btn:hover{
@@ -129,6 +123,7 @@
   position: relative;
   z-index: 1;
   color: whitesmoke;
+  background-color: rgba(0,0,0,0.8);
  }
 
  .dyte-meet{
@@ -175,6 +170,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80%;
+  height: 100vh;
   flex-direction: column;
+  background-color: rgba(0,0,0,0.8);
  }

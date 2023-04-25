@@ -17,6 +17,11 @@ const Videos = () => {
       setCurrentVideo(currentVideo + 1);
     }
 
+    if (currentVideo === videos.length - 3) {
+      const btnText = document.getElementById("playBtn");
+      btnText.style.display = "block";
+    }
+
     if (currentVideo === videos.length - 2) {
       const btnText = document.getElementById("playBtn");
       btnText.innerText = "Finish";
@@ -36,7 +41,7 @@ const Videos = () => {
     <div className="videos">
       {/* <h1>My Videos</h1> */}
       <video className="video" src={videos[currentVideo]} controls></video>
-      <button id="playBtn" onClick={playNextVideo}>
+      <button style={{ display: "none"}} id="playBtn" onClick={playNextVideo}>
         Next
       </button>
     </div>

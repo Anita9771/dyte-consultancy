@@ -1,6 +1,6 @@
 import React from "react";
 import Axios from "axios";
-import { DyteMeeting } from "@dytesdk/react-ui-kit";
+import { DyteMeeting, DyteRecordingIndicator, DyteControlbar } from "@dytesdk/react-ui-kit";
 import { useDyteClient } from "@dytesdk/react-web-core";
 
 function Dyte() {
@@ -23,8 +23,19 @@ function Dyte() {
     initMeeting({
       authToken,
       roomName,
+      // controlBar,
     });
   };
+
+  const uiConfigOptions = {
+    controlBar : false,
+  } 
+
+  // if (meeting){
+  //   meeting.uiConfig(uiConfigOptions);
+  // }
+
+  // meeting.updateUIConfig(uiConfigOptions);
 
 
   return (
@@ -33,7 +44,9 @@ function Dyte() {
         <button id="dyte-btn" className="dyte-btn" onClick={createMeeting}>
           GET STARTED
         </button>
-        <DyteMeeting meeting={meeting} mode="fill" showSetupScreen="false"/>
+        <DyteMeeting meeting={meeting} mode="fill" showSetupScreen="false" showRecordingIndictor="true" />
+        <DyteRecordingIndicator meeting={meeting} />
+        {/* <DyteControlbar meeting={meeting} /> */}
       </div>
     </div>
   );

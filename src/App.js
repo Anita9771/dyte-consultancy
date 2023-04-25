@@ -5,6 +5,7 @@ import NavBar from './components/NavBar';
 import { LandingPage, MainPage, SuccessPage } from './pages';
 
 function App() {
+  
   return (
    <Router>
      <div className="App">
