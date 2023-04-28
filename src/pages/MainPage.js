@@ -5,6 +5,8 @@ import { DyteGrid, DyteRecordingIndicator } from "@dytesdk/react-ui-kit";
 import { useDyteClient, DyteProvider } from "@dytesdk/react-web-core";
 
 const MainPage = () => {
+
+  
   const [meeting, initMeeting] = useDyteClient();
   const location = useLocation();
   const myData = location.state?.myData;
